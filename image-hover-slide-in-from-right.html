@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .container{
+            border: 3px solid red;
+            /* width: auto; and width:100% by default same */
+            width: 50%;
+            position: relative;
+          }
+          .image{
+            /* container ki 50% matalab parent ki 100% rahati hai. */
+            width: 100%;
+            /* width 100% dene per bhi hame thoda gap show hota hai to waha bhi nahi show hona chahiye to hame display:block ka use karte hai */
+            display: block;
+            height: auto;
+          }
+          .overlay{
+            background-color: #008cba;
+            position: absolute;
+            left: 100%;
+
+            /* top ka use naki karna hai.*/
+            /* top: 0; */
+
+            right: 0;
+            
+            /* bottom se height start hoti hai. */
+            bottom: 0;
+
+
+            width: 0;
+            height: 100%;
+            /* height: 50%; */
+            /* height: 5%; */
+
+            /* Hello World show hota hai to hame usko hide karna hai jab ham hover karenge tab hame show karna hai. hide karne ke liye ham overflow:hidden property ka use karte hai. */
+            overflow: hidden;
+            /* smoothe transtion ke liye ham es property ka use karte hai. */
+            transition: 1s ease;
+          }
+          .container:hover .overlay{
+            width: 100%;
+            /* hover jab karte hai tab left 0 ho jata hai. and width 100% ho jati hai. */
+            left: 0;
+          }
+          .text{
+            color: white;
+            font-size: 19px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* x= -50%  y= -50% */
+            transform: translate(-50%, -50%);
+          }
+
+
+    </style>
+</head>
+<body>
+    <h2>Slide in Overlay from the Right</h2>
+
+    <!-- parent div -->
+    <div class="container">
+        <!-- child-1 -->
+        <img src="../spider.jpg" alt="" class="image">
+        <!-- child-2 -->
+        <div class="overlay">
+            <div class="text">Hello World</div>
+        </div>
+    </div>
+</body>
+</html>

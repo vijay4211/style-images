@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        /* parent */
+        .container {
+          position: relative;
+          width: 50%;
+          border: 8px solid red;
+          border-radius: 10px;
+        }
+        
+        .image {
+            /* image ko hame "block" karna hota hai. taki waha pura parent ke div ki pura le. */
+          display: block;
+          width: 100%;
+          /* width: 80%; */
+
+          height: auto;
+        }
+        
+        .overlay {
+            /* container parent hai. */
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 100%;
+          width: 100%;
+          /* width: 70%; */
+          /* height: 70%; */
+          border: 5px solid green;
+
+          /* hide overlay div */
+          opacity: 0;
+          /* .5 second tak transition chalta hai. */
+          transition: .5s ease;
+        }
+        
+        /* container per hover kiya to hame .overlay show hota hai. */
+        .container:hover .overlay {
+            /* show overlay div*/
+          opacity: 1;
+          background-color: #008CBA;
+        }
+        
+        .text {
+          color: white;
+          font-size: 20px;
+          /* container parent hai. */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          /* x= -50%  and  y= -50% */
+          transform: translate(-50%, -50%);
+          border: 2px solid red;
+        }
+        </style>
+</head>
+<body>
+    <h2>Fade in Overlay</h2>
+    <!-- parent -->
+    <div class="container">
+        <!-- child-1 -->
+        <img src="../spider.jpg" alt="" class="image">
+        <!-- child-2 -->
+        <div class="overlay">
+            <div class="text">Hello World</div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+<!-- Notes -->
+<!-- 
+    containe ko hamne relative diya hai. 
+    overlay ko hamne absolute diya hai.
+    text ko hamne absolute diya hai.
+
+   parent ko age relative kiya hai to parent ke under ke hi child ko ham absolute kar sakte hai.
+
+ -->
+
+
+ <!--   //text ko vertically and horizontally center me lana hai tab ham es tarikese code likhate hai.
+        top: 50%;
+        left: 50%;
+          /* x= -50%  and  y= -50% */
+        transform: translate(-50%, -50%);
+  -->

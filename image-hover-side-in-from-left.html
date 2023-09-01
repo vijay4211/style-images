@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* container by default 100% width leta hai q ki yaha block element hai */
+        .container{
+            position: relative;
+            border: 3px solid red;
+            width: 50%;
+        }
+        .image{
+            width: 100%;
+            /* height ko bhi ham px and percentage me bhi de sakte hai. */
+            height: auto;
+            /* block bhi width by default 100% leta hai. */
+            display: block;
+        }
+        .overlay{
+            background-color: #00ecba;
+            /* container relative is parent of absolute */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            /* width: 100%; */
+            /* width: 10%; */
+            width: 0;
+            height: 100%;
+            /* eske under hame Hellow World show hota hai to waha hame show nahi hona chahiye jab ham hover kerege to tab hame "text" show hona chahiye. aab to hame hide karna hai to ham overflow"hidden propety ka use karne wale hai. */
+            /* overflow:hidden karne se hamare jo text show hota tha waha aap show nahi hota hai. but jab ham hover karene tab hame "text" show hona chahiye. */
+            overflow: hidden;
+            /* smoothly transition karne ke liye ham transition ka use karte hai. */
+            transition: 1s ease;
+        }
+        .text{
+            color: white;
+            font-size: 25px;
+            /* container relative is parent of absolute */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* x= -50%   y= -50% */
+            transform: translate(-50%, -50%);
+        }
+        .container:hover .overlay{
+            width: 100%;
+            /* width: 50%; */
+            /* width: 80%; */
+        }
+    </style>
+</head>
+<body>
+    <h2>Slide in Overlay from the Left</h2>
+    <!-- parnet -->
+    <div class="container">
+        <!-- child -->
+        <img src="../spider.jpg" alt="" class="image">
+        <!-- child -->
+        <div class="overlay">
+            <div class="text">Hello World</div>
+        </div>
+    </div>
+</body>
+</html>

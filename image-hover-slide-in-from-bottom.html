@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container {
+            position: relative;
+            /* parent */
+            width: 50%;
+}
+        .image{
+        /* block take full space */
+            display: block;
+            width: 100%;
+            height: auto;
+
+        }
+        .overlay{
+            background-color: #008cba;
+            /* child of container relative */
+            position: absolute;
+
+            /* top: 0 ka hame use nahi karna hai.*/
+
+            /* top: 0; */
+            left: 0;
+            right: 0;
+            /* heigth bottom se start hongi */
+            bottom: 0;
+            height: 0;
+            /* optional */
+            width: 100%;
+            /* hello world show ho raha tha upper to usko hamne hidden kiya hai. */
+            overflow: hidden;
+            /* transition 1 second tak chalenga. */
+            transition: 1s ease;
+        }
+        .container:hover .overlay{
+            height: 100%;
+            /* height: 50%; */
+            /* height: 30%; */
+            /* height: 10%; */
+        }
+        .text{
+            color: white;
+            font-size: 25px;
+            /* child of container relative */
+            position: absolute;
+            /* 3 command se ham text ke div ko center me late hai. */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+   
+        }
+    </style>
+</head>
+<body>
+    <h2>Slide in Overlay from the Bottom</h2>
+    <!-- parent -->
+    <div class="container">
+        <!-- child-1 -->
+        <img src="../spider.jpg" alt="" class="image">
+        <!-- child-2 -->
+        <div class="overlay">
+            <div class="text">Hello World</div>
+        </div>
+    </div>
+</body>
+</html>
+
+ <!-- 
+    //same output
+    .overlay{
+        bottom:0;
+        height:0;
+    }
+    .container:hover .overlay{
+        bottom:0;
+        height:100%;
+    }
+  -->

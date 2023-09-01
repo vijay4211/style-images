@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            border: 3px solid red;
+            border-radius: 4px;
+            position: relative;
+            width: 50%;
+        }
+        .image{
+            border: 3px solid blue;
+            display: block;
+            width: 100%;
+            height: auto;
+            opacity: 1;
+            transition: 0.5s ease;
+        }
+        .container:hover .image{
+            /* image ki opacity hover ke time per kam hai */
+            opacity: 0.3;
+        }
+        .middle{
+            border: 4px solid yellow;
+            /* containe is parent */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* x= -50%  and  y= -50% */
+            transform: translate(-50%, -50%);
+            /* middle div hide */
+            opacity: 0;
+        }
+        .container:hover .middle{
+            /* middle div show and uske unde ka text bhi show hota hai.*/
+            opacity: 1;
+        }
+        .text{
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            padding: 16px 32px;
+        }
+
+    </style>
+</head>
+<body>
+    <h2>Fade in a Box</h2>
+    <!-- parent -->
+    <div class="container">
+        <!-- child-1 -->
+        <img src="../spider.jpg" alt="" class="image">
+        <!-- child-2 -->
+        <div class="middle">
+            <div class="text">John Doe</div>
+        </div>
+    </div>
+</body>
+</html>

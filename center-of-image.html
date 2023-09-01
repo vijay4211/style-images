@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+    /* parent */
+  position: relative;
+  border: 2px solid red;
+}
+
+.center {
+/* child */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* x= -50%, and y= -50% */
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  border: 2px solid blue;
+}
+
+img { 
+  width: 100%;
+  height: auto;
+  opacity: 0.3;
+}
+</style>
+</head>
+<body>
+
+<h2>Image Text</h2>
+
+<p>Center text in image:</p>
+
+<div class="container">
+  <img src="../superman.jpg" alt="Cinque Terre">
+   <!-- yahaper div esaliye liya hai ki waha margin kudhaki nahi leta hai. -->
+  <!-- p tag kudha ki margin leta hai. -->
+  <div class="center">Centered</div>
+</div>
+
+</body>
+</html>
+
+

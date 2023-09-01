@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myImg{
+            border-radius:10px;
+            cursor: pointer;
+            /* smoothe transition on image */
+            transition: 1s ease;
+        }
+
+        #myImg:hover{
+            opacity: 0.7;
+        }
+
+        /* The Modal (background) */
+        /* modal div ka "position:relative" by default "body" rahata hai. */
+        .modal{
+            border: 2px solid red;
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+
+            /* .modal div ko padding top se hame 100px deni hai. */
+            padding-top:100px; /*Location of the box*/
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%; /*Full width*/
+            height: 100%; /*Full height*/
+            /* Stay in place */
+            /* z-index:1 hamne esiliye diya hai taki ham .modal div ki priority high rake. */
+            z-index: 1;
+            /* Hidden by default */
+            /* .modal div ko hamne "hide" kiya hai. */
+            display: none;
+            /* Enable scroll if needed */
+            overflow: auto;
+        }
+
+        /* Modal Content (Image) */
+        /* .modal-content yaha img hai and img yaha inline hota hai. */
+        .modal-content{
+            border: 3px solid green;
+            width: 80%;
+            max-width: 700px;
+            /*width and max-width ko ager show karwana hai to hame display:block ka use kara hota hai.ager nahi kaya to waha width and max-width show nahi hangi q ki img yaha bydefault inline element hai.  */
+            display: block;
+            /* .modal-content left and right se "center" me rahata hota hai. jab ham margin:auto ka use karte hai.*/
+            margin: auto;
+        }
+
+         /* Caption of Modal Image */
+        #caption{
+            width: 80%;
+            max-width: 700px;
+            /* width and max-width ko "center" me lana hai to ham margin:auto ka use karte hai. */
+            margin: auto;
+            height: 150px;
+            background-color: blue;
+            padding: 10px 0;
+            text-align: center;
+
+            /* div ke unde display:block "optional" rahata hai. */
+            display: block;
+            color: white;
+            font-size: 20px;
+        }
+
+        /* The Close Button */
+        /* close ka bhi relative body hai. */
+        .close{
+            color: #f1f1f1;
+            /* border: 1px solid red; */
+            font-size: 40px;
+            font-weight: bold;
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            cursor: pointer;
+        }
+         
+        /* .close per hover and focus karte hai tab hame effect show hona chahiye. */
+        .close:hover, .close:focus{
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Add Animation */
+        /* two selector ko same property apply ki hai. */
+        .modal-content, #caption {  
+            animation-name: zoom;
+            animation-duration: 3s;
+        }
+
+        /* keyframes me animation-name ko likhana hota hai. */
+        @keyframes zoom {
+            /* start from "low" to "high" */
+            from {
+                /* scale 0.1 means low zoom */
+                transform: scale(0.1);
+            }
+            to{
+                /* scale 1 means high zoom */
+                transform: scale(1);
+            }
+        }
+
+        /* 100% Image Width on Smaller Screens */
+            @media only screen and (max-width: 700px){
+                /* jab screen size ki width max 700px rahengi tab hame .modal-content ko width 100% karna hai. matalab full karna hai. */
+            .modal-content {
+                width: 100%;
+            }
+            }
+
+
+
+
+    </style>
+</head>
+<body>
+    <h2>Image Modal</h2>
+
+    <p>Here, we use CSS to create a modal (dialog box) that is hidden by default.</p>
+    <p>We use JavaScript to trigger the modal and to display the current image inside the modal when it is clicked on. Also note that we use the value from the image's "alt" attribute as an image caption text inside the modal.</p>
+    <p>Don't worry if you do not understand the code right away. When you are done with CSS, go to our JavaScript Tutorial to learn more.</p>
+
+    <img id="myImg" src="../spider.jpg" alt="Northern Lights, Norway">
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img src="" alt="" class="modal-content" id="img01">
+        <div id="caption"></div>
+    </div>
+</body>
+</html>
+
+<script>
+    // Get the modal
+    // parent div ke id hamne access kiya hai.
+    var modal = document.getElementById('myModal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    // image ke id ko hamne access kiya hai.
+    var img = document.getElementById('myImg');
+    // img ke id ko hamne access kiya hai.
+    var modalImg = document.getElementById('img01');
+    // empty div ke caption id ko hamne access kiya hai.
+    var captionText = document.getElementById('caption');
+
+
+    // image per click karne ke baad hamara ".modal" div show hona chahiye.
+   img.onclick = function(){
+    // display:block ka matalab modal div show hona.
+    modal.style.display = "block";
+     
+    // Reference of spider-man image
+    // this jo hai waha Reference ka kaam karta hai.
+    modalImg.src = this.src;
+    // empty div ke under hame "text" show hota hai.
+    captionText.innerHTML = this.alt;
+   }
+
+   // Get the <span> element that close the modal
+    var span = document.getElementsByClassName('close')[0];
+    
+    // When the use clicks on <span> (x), close the modal
+        // close button per onclick karne ge to ".modal" hide hona chahiye.
+     span.onclick = function(){
+        modal.style.display = "none";
+     }   
+
+
+
+
+
+
+</script>

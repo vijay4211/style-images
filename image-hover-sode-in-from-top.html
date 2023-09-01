@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .container{
+            border: 3px solid red;
+            width: 50%;
+            /* width: 70%; */
+            position: relative;
+        }
+        .image{
+            /* displya block se image puri conver ho jati hai. */
+            display: block;
+            width: 100%;
+            /* width: 70%; */
+            height: auto;
+        }
+        .overlay{
+            border: 3px solid blue;
+            /* container is parent */
+            position: absolute;
+            /* top: 0 ko ham use nahi kare wale hai. */
+            /* top: 0; */
+
+            left: 0;
+            /* bottom:0; */
+            /* bottom: 5%; */
+            /* bottom: 10%; */
+            /* bottom: 20%; */
+            /* bottom: 40%; */
+            /* bottom: 60%; */
+            /* bottom: 80%; */
+            /* bottom: 90%; */
+            /* bottom: 95%; */
+            bottom: 100%;
+            height: 0%;       
+            right:0;
+        
+            /* width 100% optional */
+            width: 100%;
+            transition: 1.5s ease;
+             
+            /* "text" jo hai waha hame top me show hota hai to usko hame hide karna hai to esiliye ham "overflow:hidden ka use karte hai." */
+            overflow: hidden;
+        
+        }
+        .container:hover .overlay{
+            /* hover karne per .overlay ki height 100% show hoti hai. and  hover nahi kiya to height 0% rahati hai.*/
+            height: 100%;
+            /* height: 90%; */
+            /* height: 70%; */
+            /* height: 50%; */
+            /* height: 30%; */
+            /* height: 10%; */
+            bottom: 0;
+            background-color: blue;
+        }
+        .text{
+            color: white;
+            /* container is parent  */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h2>Slide in Overlay from the Top</h2>
+
+    <!-- parent div -->
+    <div class="container">
+        <!-- child-1 -->
+      <img src="../spider.jpg" alt="Avatar" class="image">
+      <!-- child-2 -->
+      <div class="overlay">
+        <div class="text">Hello World</div>
+      </div>
+    </div>
+</body>
+</html>
+
+<!-- Notes -->
+<!-- 
+    .overlay ki bottom 100% hai and height 0% hai. but jab ham hover karte hai tab bottom 0% karte hai and heigth 100% karte hai.
+ -->
+
+ <!-- 
+    //same output
+    .overlay{
+        top:0;
+        height:0;
+    }
+    .container:hover .overlay{
+        top:0;
+        height:100%;
+    }
+  -->

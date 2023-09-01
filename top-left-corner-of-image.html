@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+    /* parent */
+  position: relative;
+  border: 2px solid red;
+}
+
+.topleft {
+    /* child */
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+
+img { 
+  width: 100%;
+  /* ham chahye to height px me bhi de sakte hai. */
+  height: auto;
+  /* 0 to 1 */
+  opacity: 0.3;
+}
+</style>
+</head>
+<body>
+
+<h2>Image Text</h2>
+
+<p>Add some text to an image in the top left corner:</p>
+
+<div class="container">
+  <img src="../superman.jpg" alt="Cinque Terre">
+  <!-- yahaper div esaliye liya hai ki waha margin kudhaki nahi leta hai. -->
+  <!-- p tag kudha ki margin leta hai. -->
+  <p class="topleft">Top Left</p>
+</div>
+
+</body>
+</html>
+
+<!-- p tag khudki margin leta hai.  div kudhaki margin nahi leta hai. -->
+
